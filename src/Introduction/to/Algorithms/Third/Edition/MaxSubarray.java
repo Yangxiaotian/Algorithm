@@ -7,7 +7,7 @@ public class MaxSubarray {
         int sum;
     }
 
-    public static Subarray findMaxCrossingMaxSubarray(int[] A, int low, int mid, int high) {
+    public static Subarray findCrossingMaxSubarray(int[] A, int low, int mid, int high) {
         Subarray leftSubarray = new Subarray();
         Subarray rightSubarray = new Subarray();
 
@@ -46,7 +46,7 @@ public class MaxSubarray {
         if (low < high) {
             int mid = (low + high) / 2;
             Subarray leftSubarray = findMaxSubarray(A, low, mid);
-            Subarray crossSubarray = findMaxCrossingMaxSubarray(A, low, mid, high);
+            Subarray crossSubarray = findCrossingMaxSubarray(A, low, mid, high);
             Subarray rightSubarray = findMaxSubarray(A, mid+1, high);
             if(leftSubarray.sum >= crossSubarray.sum && leftSubarray.sum >= rightSubarray.sum) {
                 return leftSubarray;
